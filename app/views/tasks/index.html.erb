@@ -1,0 +1,29 @@
+<div class="bg-gray-400">
+  <nav class="text-red-500 px-[10px] items-center bg-gray-950 text-center font-bold w-full text-[50px]">
+    L.I.S.T.E&nbsp; &nbsp; D.E.S &nbsp; &nbsp;T.A.C.H.E.S
+  </nav>
+
+  <table class="border-solid border-1 border-black mt-[40px] text-yellow-500 px-[40px] items-center bg-gray-400 text-center font-bold w-full text-[25px]">
+    <tr>
+      <th class="border-solid border-2 border-black text-black">Titre</th>
+      <th class="border-solid border-2 border-black text-black">Description</th>
+      <th class="border-solid border-2 border-black text-black" colspan="3">Options</th>
+    </tr>
+
+    <% @tasks.each do |task| %>
+      <tr>
+        <td class="border-solid border-2 border-black"><%= task.title %></td>
+        <td class="border-solid border-2 border-black"><%= task.description %></td>
+        <td class="border-solid border-2 border-black hover:bg-gray-900 text-blue-600"><%= link_to 'Modifier', edit_task_path(task) %></td>
+        <td class="border-solid border-2 border-black hover:bg-gray-900 text-red-600"><%= link_to 'Supprimer', confirm_destroy_task_path(task) %></td>
+        <td class="border-solid border-2 border-black hover:bg-gray-900 text-green-600"><%= link_to 'Voir le contenu', contenu_task_path(task) %></td>
+      </tr>
+    <% end %>
+  </table>
+  <% if flash[:notice] %>
+    <div class="notice text-center font-bold text-[50px] text-blue-600"> <%=flash[:notice] %> </div>
+  <%end%>
+
+  <p class="text-white rounded hover:bg-white hover:text-green-700 mt-[2.5vw] text-center items-center content-center ml-[40%] mr-[40%] bg-green-900 w-[20%] font-bold text-[25px] "><%= link_to 'Nouvelle tâche', new_task_path %></p><br>
+
+</div>

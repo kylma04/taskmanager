@@ -1,0 +1,30 @@
+<a href="/"><h1 class="text-yellow-500 px-[10px] items-center bg-gray-950 text-center font-bold w-full text-[50px]">Modifier la tâche</h1></a><br>
+
+<div class="bg-gray-400 text-center h-[40vh]">
+  <%= form_with(model: @task, local: true) do |form| %>
+    &nbsp;&nbsp;
+    <div class="text-xl font-bold">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= form.label :title%>
+      <%= form.text_field :title %>
+    </div>
+
+    <br>
+
+    <div class="text-xl font-bold">
+      <%= form.label :description, class:"top-[14vw] right-[60vw] absolute text-red-500"%>
+      <%= form.text_area :description, class:"w-[18.5vw]" %>
+    </div>
+
+
+    <div class="text-xl font-bold">
+      <%= form.label :dayforexecution,"Jour d'execution" ,class:"top-[14vw] right-[60vw]"%>
+      <%= form.text_field :dayforexecution %>
+    </div>
+
+    <%= form.submit "Modifier la tâche",class: "cursor-pointer hover:bg-gray-500 text-xl hover:rounded p-2 font-bold" %>
+  
+  <% end %>
+  <%= link_to 'Retour', tasks_path, class:"text-center hover:bg-gray-900 hover:rounded w-[10%] mt-[2vw] p-2  text-xl font-bold text-red-600"%>
+  
+</div>
